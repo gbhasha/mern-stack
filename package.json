@@ -1,0 +1,12 @@
+{
+  "name": "mern-stack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:gbhasha/mern-stack.git",
+  "author": "Galeel Bhasha Satthar <gbhasha@gmail.com>",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "license": "MIT"
+}
