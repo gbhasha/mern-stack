@@ -4,9 +4,13 @@
   "main": "index.js",
   "repository": "git@github.com:gbhasha/mern-stack.git",
   "author": "Galeel Bhasha Satthar <gbhasha@gmail.com>",
+  "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
+  "engines": {
+    "node": "20.11.1"
+  },
   "license": "MIT"
 }
