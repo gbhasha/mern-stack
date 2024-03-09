@@ -1,7 +1,8 @@
-const tasksSchema = require("../model/tasksSchema");
-const { Types } = require("mongoose");
+import tasksSchema from "../model/tasksSchema";
+import { Types } from "mongoose";
+import {ITaskPayload} from "../model/interfaces/ITask"
 
-exports.getAllTasks = async () => {
+const getAllTasks = async () => {
   try {
     const allTasks = await tasksSchema.find({});
     if (allTasks) {
@@ -9,12 +10,12 @@ exports.getAllTasks = async () => {
     } else {
       throw new Error("No results found");
     }
-  } catch (e) {
+  } catch (e: unknown) {
     throw e;
   }
 };
 
-exports.getTask = async (id) => {
+const getTask = async (id: any) => {
   if (!Types.ObjectId.isValid(id)) {
     throw new Error("Invalid ID");
   }
@@ -25,12 +26,12 @@ exports.getTask = async (id) => {
     } else {
       throw new Error("No results found");
     }
-  } catch (e) {
+  } catch (e: unknown) {
     throw e;
   }
 };
 
-exports.deleteTask = async (id) => {
+const deleteTask = async (id: any) => {
   if (!Types.ObjectId.isValid(id)) {
     throw new Error("Invalid ID");
   }
@@ -41,12 +42,12 @@ exports.deleteTask = async (id) => {
     } else {
       throw new Error("No matching record found to delete");
     }
-  } catch (e) {
+  } catch (e: unknown) {
     throw e;
   }
 };
 
-exports.createTask = async (payload) => {
+const createTask = async (payload: ITaskPayload) => {
   try {
     const tasks = await tasksSchema.create(payload);
     if (tasks) {
@@ -54,12 +55,12 @@ exports.createTask = async (payload) => {
     } else {
       throw new Error("No results found");
     }
-  } catch (e) {
+  } catch (e: unknown) {
     throw e;
   }
 };
 
-exports.updateTask = async (id, payload) => {
+const updateTask = async (id: any, payload: ITaskPayload) => {
   if (!Types.ObjectId.isValid(id)) {
     throw new Error("Invalid ID");
   }
@@ -75,7 +76,15 @@ exports.updateTask = async (id, payload) => {
     } else {
       throw new Error("No results found");
     }
-  } catch (e) {
+  } catch (e: unknown) {
     throw e;
   }
 };
+
+export default {
+  getAllTasks,
+  getTask,
+  createTask,
+  deleteTask,
+  updateTask
+}

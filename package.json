@@ -5,6 +5,7 @@
   "repository": "git@github.com:gbhasha/mern-stack.git",
   "author": "Galeel Bhasha Satthar <gbhasha@gmail.com>",
   "private": true,
+  "type": "module",
   "workspaces": [
     "apps/*",
     "packages/*"
